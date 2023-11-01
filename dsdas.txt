@@ -1,0 +1,35 @@
+  <label className="text-xl font-medium">Enter First Name</label>
+          <input
+            type="text"
+            id="fName"
+            className="border-b-2 outline-none border-stone-500"
+          ></input>
+          <label className="text-xl font-medium">Enter Last Name</label>
+          <input
+            id="lName"
+            type="text"
+            className="border-b-2 outline-none border-stone-500"
+          ></input>
+          <label className="text-xl font-medium">Enter Username</label>
+          <input
+            className="border-b-2 outline-none border-stone-500"
+            type="text"
+            id="username"
+          ></input>
+          <label className="text-xl font-medium">Enter Password</label>
+          <div>
+            <input
+              className="border-b-2 outline-none border-stone-500"
+              type={showPwd ? "password" : "text"}
+              id="pwd"
+            ></input>
+            <span className="pointer" onClick={() => setShow((show) => !show)}>
+              <FontAwesomeIcon icon={faEyeSlash} />
+            </span>
+          </div>
+          <button
+            type="submit"
+            className="p-2 text-lg bg-blue-500 text-white rounded"
+          >
+            Signup!
+          </button>
