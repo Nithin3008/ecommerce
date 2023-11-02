@@ -16,7 +16,7 @@ const Filters = () => {
     dispatch(FetchCategory());
   }, [dispatch]);
   return (
-    <div className="font-nunito border-r-2 border-blue-950 h-100vh p-4 max-sm:hidden">
+    <div className="font-nunito border-r-2 border-blue-950 h-100%  p-4 max-sm:hidden space-y-4">
       <div className="flex gap-16">
         <p className="text-xl">Filters</p>
         <button
@@ -26,7 +26,8 @@ const Filters = () => {
           Clear
         </button>
       </div>
-      <div>
+      <hr></hr>
+      <div className="space-y-2">
         <p>Price Range</p>
         <input
           id="large-range"
@@ -38,7 +39,7 @@ const Filters = () => {
         />
       </div>
       <hr></hr>
-      <div className="p-3">
+      <div className="p-3 space-y-1">
         <p className="text-lg">Category By</p>
         {categoriesList?.map((cate) => (
           <label key={cate.categoryName} className="space-x-2 flex">
@@ -52,7 +53,7 @@ const Filters = () => {
         ))}
       </div>
       <hr></hr>
-      <ul className="p-3 w-max">
+      <ul className="p-3 w-max space-y-2">
         <p className="text-lg">Rating </p>
         {Array.from({ length: 5 }, (_, i) => (
           <li key={i} className="space-x-2 flex items-center">
@@ -69,7 +70,7 @@ const Filters = () => {
         ))}
       </ul>
       <hr></hr>
-      <div className="flex flex-col p-3">
+      <div className="flex flex-col p-3 space-y-1">
         <p className="text-lg">Sorty By</p>
         <label className="space-x-2">
           <input
