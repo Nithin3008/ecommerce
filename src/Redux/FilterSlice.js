@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   CategoryFilter: [],
-  SortBy: "",
+  SortBy: "empty",
   Rating: 0,
   Range: 3800001,
   Search: "",
@@ -32,7 +32,7 @@ const filterSlice = createSlice({
     },
     setAllClear(state) {
       state.CategoryFilter = [];
-      state.SortBy = "";
+      state.SortBy = "empty";
       state.Rating = 0;
       state.Range = 3800001;
       state.Search = "";
