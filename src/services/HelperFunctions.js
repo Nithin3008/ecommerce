@@ -43,7 +43,6 @@ export function ApplyFilters(ProdDetails) {
   if (filtersData.Rating > 0) {
     newData = newData.filter((val) => val.rating >= filtersData.Rating);
   }
-  // if (filtersData.Range < 4000000)
-  console.log(newData);
+  newData = newData.filter((val) => val.price <= filtersData.Range);
   return newData;
 }
