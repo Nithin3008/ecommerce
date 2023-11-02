@@ -5,9 +5,18 @@ import {
   faCartShopping,
   faRightToBracket,
 } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setSearch } from "../Redux/FilterSlice";
 const NavBar = () => {
+  const dispatch = useDispatch();
+  const nav = useNavigate();
+  function setSearchQuery(event) {
+    dispatch(setSearch(event.target.value));
+    nav("/Product");
+  }
   return (
-    <div>
+    <div className="sticky top-0 bg-white border-b-2 border-blue-800">
       {" "}
       <nav className="flex items-center justify-around p-2 overflow-hidden max-md:flex-col max-md:gap-5">
         <div className="flex items-center gap-5">
@@ -27,7 +36,9 @@ const NavBar = () => {
         <div>
           <input
             type="text"
-            className="border-2 border-blue-950 rounded-lg w-80 "
+            placeholder="search"
+            className="border-2 border-blue-500 rounded-lg w-80 h-10 p-2 "
+            onChange={(e) => setSearchQuery(e)}
           ></input>
         </div>
         <div className="flex items-center gap-5 p-4">
