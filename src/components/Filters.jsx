@@ -29,6 +29,11 @@ const Filters = () => {
       <hr></hr>
       <div className="space-y-2">
         <p>Price Range</p>
+        <div className="space-x-10">
+          <span>0</span>
+          <span>1900k</span>
+          <span>3800k</span>
+        </div>
         <input
           id="large-range"
           type="range"
