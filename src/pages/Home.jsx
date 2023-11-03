@@ -41,7 +41,7 @@ const Home = () => {
         </p>
       </div>
 
-      <div className="mt-28">
+      <div className="my-28">
         <h1 className="text-4xl text-center max-sm:text-xl p-4">Categories</h1>
         <ul className="grid grid-cols-2 place-items-center  mt-10 gap-7 max-md:flex flex-col">
           {categories?.category.map((val) => (
