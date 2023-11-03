@@ -4,12 +4,14 @@ import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 import LinkButton from "../components/LinkButton";
 import { AuthContext } from "../services/AuthFunctions";
+import NavBar from "../components/NavBar";
 const Login = () => {
   const { loginHandler } = useContext(AuthContext);
   const [showPwd, setShow] = useState(true);
   return (
     <>
-      <div className="flex h-screen font-nunito justify-center items-center">
+      <NavBar></NavBar>
+      <div className="flex  font-nunito justify-between items-center max-md:justify-center">
         <div className="w-1/2 text-center ">
           <form
             onSubmit={(e) => {
@@ -48,13 +50,15 @@ const Login = () => {
           </form>
           <p className="text-lg p-2 mt-3 space-x-2">
             Don't Have Account?
-            <LinkButton to={"/Signup"} style="p-1 text-lg text-blue-500">
-              SignUp!
-            </LinkButton>
+            <LinkButton to={"/Signup"}> SignUp!</LinkButton>
           </p>
         </div>
-        <div className="w-1/2">
-          <img className="h-screen w-screen" src="./login.jpg" alt="" />
+        <div className="h-[calc(100vh-84.095px)] w-1/2 max-md:hidden">
+          <img
+            className="h-full object-cover w-full"
+            src="./login.jpg"
+            alt="loginImage"
+          />
         </div>
       </div>
     </>
