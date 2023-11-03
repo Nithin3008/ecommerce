@@ -11,16 +11,10 @@ const Product = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(FetchProducts());
-    dispatch(FetchCart());
-    dispatch(FetchWishlist());
-  }, []);
+  }, [dispatch]);
   const productsArr = useSelector((state) => state.prodCate.products);
-
-  const cartList = useSelector((state) => state.cart);
   const productsList = ApplyFilters(productsArr);
-  const WishListItems = useSelector((state) => state.wishlist);
   const filtersPage = useSelector((state) => state.filter);
-  console.log("project page reload");
   return (
     <>
       <NavBar></NavBar>

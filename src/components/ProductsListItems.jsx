@@ -14,10 +14,6 @@ const ProductsListItems = ({ data }) => {
   const nav = useNavigate();
   const cart = useSelector((state) => state.cart);
   const wishlist = useSelector((state) => state.wishlist);
-  useEffect(() => {
-    dispatch(FetchCart());
-    dispatch(FetchWishlist());
-  }, [dispatch]);
   return (
     <li className="rounded-lg">
       <img
