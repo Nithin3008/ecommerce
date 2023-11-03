@@ -6,10 +6,10 @@ import wishListReducer from "./WishlistRedux";
 import FiltersReducer from "./FilterSlice";
 const store = configureStore({
   reducer: {
-    // cart: cartReducer,
+    cart: cartReducer,
     prodCate: prodCateReducer,
     // User: UserReducer,
-    // wishlist: wishListReducer,
+    wishlist: wishListReducer,
     filter: FiltersReducer,
   },
 });
