@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 import { FetchCategory } from "../Redux/ProductCategorySlice";
-import getRandomElementsFromArray from "../services/RandomProductGenerator";
+
 import HomeListItems from "../components/HomeListItems";
 import NavBar from "../components/NavBar";
 const Home = () => {
@@ -16,7 +15,7 @@ const Home = () => {
   return (
     <div className="font-nunito">
       <NavBar></NavBar>
-      <hr className="bg-blue-800"></hr>
+      <hr className="bg-blue-500"></hr>
       <div>
         <img
           src="/heroImage.jpg"
@@ -28,7 +27,7 @@ const Home = () => {
         </h1>
         <hr></hr>
       </div>
-      <div className="relative mt-36 ">
+      <div className="relative mt-36">
         <h1 className="text-4xl text-center p-4 max-sm:text-xl">
           Our Latest Car
         </h1>
