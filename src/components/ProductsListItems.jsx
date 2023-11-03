@@ -1,20 +1,30 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Button from "./Button";
-import { useDispatch } from "react-redux";
-import { AddCartItem } from "../Redux/CartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { AddCartItem, FetchCart } from "../Redux/CartSlice";
 import { itemInCart, itemInWishList } from "../services/HelperFunctions";
-import { AddWishlistItem } from "../Redux/WishlistRedux";
+import { AddWishlistItem, FetchWishlist } from "../Redux/WishlistRedux";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const ProductsListItems = ({ data }) => {
   const dispatch = useDispatch();
+  const nav = useNavigate();
+  const cart = useSelector((state) => state.cart);
+  const wishlist = useSelector((state) => state.wishlist);
+  useEffect(() => {
+    dispatch(FetchCart());
+    dispatch(FetchWishlist());
+  }, [dispatch]);
   return (
-    <li className="rounded-lg  ">
+    <li className="rounded-lg">
       <img
         src={data.src}
         className="h-40 object-cover rounded-t-md"
         alt="car"
+        onClick={() => nav(`/ProductSummary/${data._id}`)}
       ></img>
       <div className="text-center space-y-2  p-4">
         <div className="space-x-4">
@@ -27,13 +37,13 @@ const ProductsListItems = ({ data }) => {
         <p className="text-lg">MSRP: {data.price}</p>
         <div className="space-x-4">
           <Button
-            isdisabled={itemInCart(data._id) == data._id}
+            isdisabled={itemInCart(data._id) === data._id}
             onReact={() => dispatch(AddCartItem(data))}
             styling={
               "border-2 border-blue-500 p-1 rounded text-blue-500 hover:bg-blue-500 hover:text-white"
             }
           >
-            {itemInCart(data._id) == data._id ? "Go to Cart" : "Add to Cart"}
+            {itemInCart(data._id) === data._id ? "Go to Cart" : "Add to Cart"}
           </Button>
           <Button
             onReact={() => dispatch(AddWishlistItem(data))}
