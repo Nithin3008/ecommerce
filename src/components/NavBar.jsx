@@ -41,6 +41,7 @@ const NavBar = () => {
           <LinkButton to="/Products">Products</LinkButton>
           <LinkButton to="/Cart">Cart</LinkButton>
           <LinkButton to="/Wishlist">Wishlist</LinkButton>
+          <LinkButton to="/Profile">Profile</LinkButton>
         </div>
       </nav>
     </div>
