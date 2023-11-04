@@ -4,9 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import CartListItem from "../components/CartListItem";
 import { useEffect } from "react";
 import { FetchCart } from "../Redux/CartSlice";
+import Button from "../components/Button";
+import { useNavigate } from "react-router-dom";
 const Cart = () => {
   const cartList = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
+  const nav = useNavigate();
   const totalAmount = cartList.reduce((acc, val) => acc + val.price, 0);
   useEffect(() => {
     dispatch(FetchCart());
@@ -32,11 +35,22 @@ const Cart = () => {
                 <span className="text-lg">{val.price}$</span>
               </li>
             ))}
-            <hr></hr>
-            <div className="space-x-48 text-xl">
-              <span>Total Price:</span> <span>{totalAmount}$</span>
-            </div>
           </ul>
+          <hr></hr>
+          <div className="space-x-48 text-xl">
+            <span>Total Price:</span> <span>{totalAmount}$</span>
+          </div>
+          <hr></hr>
+          <div className="text-center">
+            <Button
+              styling={
+                "p-2 text-lg bg-yellow-400 text-white rounded hover:bg-white hover:text-yellow-500 hover:border-2 hover: border-yellow-500"
+              }
+              onReact={() => nav("/Checkout")}
+            >
+              Checkout
+            </Button>
+          </div>
         </div>
       </div>
     </>
