@@ -1,19 +1,31 @@
 import React, { createContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setLogin } from "../Redux/UserSlice";
 export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const nav = useNavigate();
-  async function loginHandler(event) {
-    console.log(event.target.username.value, event.target.pwd.value);
+  const dispatch = useDispatch();
+  async function loginHandler(event, testDetails) {
+    let userName = "";
+    let pwd = "";
+    if (testDetails) {
+      userName = testDetails.userName;
+      pwd = testDetails.pwd;
+      dispatch(setLogin(testDetails));
+    } else {
+      userName = event.target.username.value;
+      pwd = event.target.pwd.value;
+    }
     try {
       const response = await axios.post(`/api/auth/login`, {
-        email: event.target.username.value,
-        password: event.target.pwd.value,
+        email: userName,
+        password: pwd,
       });
-      console.log(response.data);
       if (response.status === 200) {
         localStorage.setItem("loginToken", response.data.encodedToken);
+
         return nav("/");
       }
     } catch (error) {
@@ -21,6 +33,11 @@ export const AuthProvider = ({ children }) => {
     }
   }
   const signupHandler = async (event) => {
+    const details = {
+      fName: event.target.fname.value,
+      lName: event.target.lname.value,
+      userName: event.target.username.value,
+    };
     try {
       const response = await axios.post(`/api/auth/signup`, {
         firstName: event.target.fname.value,
@@ -30,6 +47,7 @@ export const AuthProvider = ({ children }) => {
       });
       console.log(response.data);
       if (response.status == 201) {
+        dispatch(setLogin(details));
         return nav("/Login");
       }
     } catch (error) {
