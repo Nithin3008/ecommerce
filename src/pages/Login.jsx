@@ -5,9 +5,20 @@ import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import LinkButton from "../components/LinkButton";
 import { AuthContext } from "../services/AuthFunctions";
 import NavBar from "../components/NavBar";
+
 const Login = () => {
   const { loginHandler } = useContext(AuthContext);
   const [showPwd, setShow] = useState(true);
+
+  function testCred() {
+    const details = {
+      userName: "test@gmail.com",
+      pwd: "test",
+      fName: "john",
+      lName: "wick",
+    };
+    loginHandler(null, details);
+  }
   return (
     <>
       <NavBar></NavBar>
@@ -26,6 +37,7 @@ const Login = () => {
               className="border-b-2 outline-none border-stone-500"
               type="text"
               id="username"
+              required
             ></input>
             <label className="text-xl font-medium">Enter Password</label>
             <div>
@@ -33,6 +45,7 @@ const Login = () => {
                 className="border-b-2 outline-none border-stone-500"
                 type={showPwd ? "password" : "text"}
                 id="pwd"
+                required
               ></input>
               <span
                 className="pointer"
@@ -48,6 +61,12 @@ const Login = () => {
               Login
             </button>
           </form>
+          <button
+            onClick={testCred}
+            className="p-1 text-lg bg-blue-500 text-white rounded my-4"
+          >
+            Login with Test Credentials
+          </button>
           <p className="text-lg p-2 mt-3 space-x-2">
             Don't Have Account?
             <LinkButton to={"/Signup"}> SignUp!</LinkButton>
