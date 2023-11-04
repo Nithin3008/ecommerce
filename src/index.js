@@ -12,10 +12,10 @@ makeServer();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Router>
-    <AuthProvider>
-      <Provider store={store}>
+    <Provider store={store}>
+      <AuthProvider>
         <App />
-      </Provider>
-    </AuthProvider>
+      </AuthProvider>
+    </Provider>
   </Router>
 );
