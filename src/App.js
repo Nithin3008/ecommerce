@@ -8,6 +8,8 @@ import ProductSummary from "./pages/ProductSummary";
 import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
 import UserProfile from "./pages/UserProfile";
+import Checkout from "./pages/Checkout";
+import AuthVerify from "./services/AuthVerify";
 function App() {
   return (
     <div className="App">
@@ -20,9 +22,31 @@ function App() {
           element={<ProductSummary></ProductSummary>}
         ></Route>
         <Route path="/Products" element={<Product></Product>}></Route>
-        <Route path="/Cart" element={<Cart></Cart>}></Route>
-        <Route path="/Wishlist" element={<Wishlist></Wishlist>}></Route>
-        <Route path="/Profile" element={<UserProfile></UserProfile>}></Route>
+        <Route
+          path="/Cart"
+          element={
+            <AuthVerify>
+              <Cart></Cart>
+            </AuthVerify>
+          }
+        ></Route>
+        <Route
+          path="/Wishlist"
+          element={
+            <AuthVerify>
+              <Wishlist></Wishlist>
+            </AuthVerify>
+          }
+        ></Route>
+        <Route
+          path="/Profile"
+          element={
+            <AuthVerify>
+              <UserProfile></UserProfile>
+            </AuthVerify>
+          }
+        ></Route>
+        <Route path="/Checkout" element={<Checkout></Checkout>}></Route>
       </Routes>
     </div>
   );
