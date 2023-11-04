@@ -7,6 +7,7 @@ import Product from "./pages/Product";
 import ProductSummary from "./pages/ProductSummary";
 import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
+import UserProfile from "./pages/UserProfile";
 function App() {
   return (
     <div className="App">
@@ -21,6 +22,7 @@ function App() {
         <Route path="/Products" element={<Product></Product>}></Route>
         <Route path="/Cart" element={<Cart></Cart>}></Route>
         <Route path="/Wishlist" element={<Wishlist></Wishlist>}></Route>
+        <Route path="/Profile" element={<UserProfile></UserProfile>}></Route>
       </Routes>
     </div>
   );
