@@ -1,11 +1,17 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { setSearch } from "../Redux/FilterSlice";
 import LinkButton from "./LinkButton";
+import Button from "./Button";
+import { useContext } from "react";
+import { AuthContext } from "../services/AuthFunctions";
+
 const NavBar = () => {
+  const { Logout } = useContext(AuthContext);
   const dispatch = useDispatch();
   const nav = useNavigate();
+  const location = useLocation();
   function setSearchQuery(event) {
     dispatch(setSearch(event.target.value));
     nav("/Product");
@@ -42,6 +48,14 @@ const NavBar = () => {
           <LinkButton to="/Cart">Cart</LinkButton>
           <LinkButton to="/Wishlist">Wishlist</LinkButton>
           <LinkButton to="/Profile">Profile</LinkButton>
+          {location.pathname === "/Profile" && (
+            <Button
+              onReact={() => Logout()}
+              styling={"bg-red-500 p-2 text-xl text-white rounded-lg"}
+            >
+              Logout
+            </Button>
+          )}
         </div>
       </nav>
     </div>
