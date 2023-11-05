@@ -33,6 +33,16 @@ const UserSlice = createSlice({
       state.user.lName = "";
       state.user.userName = "";
       state.isLogin = false;
+      state.address = [
+        {
+          id: uuid(),
+          phoneNo: 7894561230,
+          street: "Wall street lower manhattam",
+          code: 10005,
+          city: "New York",
+          country: "USA",
+        },
+      ];
     },
     addAddress(state, action) {
       state.address = [...state.address, action.payload];
