@@ -8,7 +8,7 @@ import {
   setAllClear,
   setRange,
 } from "../Redux/FilterSlice";
-const Filters = () => {
+const Filters = ({ show }) => {
   const dispatch = useDispatch();
   const categoriesList = useSelector((state) => state.prodCate.category);
   const filtersList = useSelector((state) => state.filter);
@@ -16,7 +16,11 @@ const Filters = () => {
     dispatch(FetchCategory());
   }, [dispatch]);
   return (
-    <div className="font-nunito border-r-2 border-blue-950 h-100%  p-4 max-sm:hidden space-y-4">
+    <div
+      className={`font-nunito border-r-2 border-blue-950 h-100%  p-4 max-sm:${
+        show ? "inline" : "hidden"
+      } space-y-4 `}
+    >
       <div className="flex gap-16">
         <p className="text-xl">Filters</p>
         <button
