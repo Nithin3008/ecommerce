@@ -13,7 +13,7 @@ import AuthVerify from "./services/AuthVerify";
 import { ToastContainer } from "react-toastify";
 function App() {
   return (
-    <div className="App">
+    <div className="App font-nunito">
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/Login" element={<Login></Login>}></Route>
