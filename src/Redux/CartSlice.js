@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const initialState = { cart: [], status: "idle" };
 const cartSlice = createSlice({
   name: "cart",
@@ -58,7 +60,7 @@ export const FetchCart = createAsyncThunk("cart/FetchCart", async () => {
       authorization: encodedToken,
     },
   });
-  console.log("cart loading", response.data);
+
   return response.data.cart;
 });
 export const AddCartItem = createAsyncThunk(
@@ -77,6 +79,11 @@ export const AddCartItem = createAsyncThunk(
         },
       }
     );
+    if (response.status === 201) {
+      toast.success("Item added to Cart", {
+        position: "bottom-right",
+      });
+    }
     return response.data.cart;
   }
 );
@@ -89,10 +96,11 @@ export const DeleteCartItem = createAsyncThunk(
         authorization: encodedToken,
       },
     });
-    // if (response.status === 200) {
-    //   toast.warning("Removed from Cart", {
-    //     position: "bottom-right",
-    //   });
+    if (response.status === 200) {
+      toast.warning("Removed from Cart", {
+        position: "bottom-right",
+      });
+    }
     return response.data.cart;
   }
 );
@@ -114,6 +122,11 @@ export const IncrementCartItem = createAsyncThunk(
         },
       }
     );
+    if (response.status === 200) {
+      toast.success("Added one more", {
+        position: "bottom-right",
+      });
+    }
     return response.data.cart;
   }
 );
@@ -134,6 +147,11 @@ export const DecrementCartItem = createAsyncThunk(
         },
       }
     );
+    if (response.status === 200) {
+      toast.warning("Removed one item", {
+        position: "bottom-right",
+      });
+    }
     return response.data.cart;
   }
 );

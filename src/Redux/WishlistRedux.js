@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
 const initialState = { wishlist: [], status: "idle" };
@@ -66,6 +67,11 @@ export const AddWishlistItem = createAsyncThunk(
         },
       }
     );
+    if (response.status === 201) {
+      toast.success("Added to Whislist", {
+        position: "bottom-right",
+      });
+    }
     return response.data.wishlist;
   }
 );
@@ -79,7 +85,11 @@ export const RemoveWishlistItem = createAsyncThunk(
         authorization: encodedToken,
       },
     });
-    console.log(response.data);
+    if (response.status === 200) {
+      toast.warning("Removed from Wishlist", {
+        position: "bottom-right",
+      });
+    }
     return response.data.wishlist;
   }
 );

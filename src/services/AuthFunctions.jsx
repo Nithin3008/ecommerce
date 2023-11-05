@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 import { setLogin, setLogout } from "../Redux/UserSlice";
 import { setEmptyCart } from "../Redux/CartSlice";
 import { setWishlistEmpty } from "../Redux/WishlistRedux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const nav = useNavigate();
@@ -27,11 +29,15 @@ export const AuthProvider = ({ children }) => {
       });
       if (response.status === 200) {
         localStorage.setItem("loginToken", response.data.encodedToken);
-
+        toast.success("Welcome Back", {
+          position: "top-center",
+        });
         return nav("/");
       }
     } catch (error) {
-      console.log(error);
+      toast.error("Please enter correct details", {
+        position: "top-center",
+      });
     }
   }
   const signupHandler = async (event) => {
@@ -47,9 +53,11 @@ export const AuthProvider = ({ children }) => {
         email: event.target.username.value,
         password: event.target.pwd.value,
       });
-      console.log(response.data);
       if (response.status == 201) {
         dispatch(setLogin(details));
+        toast.success(`Welcome ${details.fName}`, {
+          position: "top-center",
+        });
         return nav("/Login");
       }
     } catch (error) {

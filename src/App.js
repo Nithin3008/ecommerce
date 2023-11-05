@@ -10,6 +10,7 @@ import Wishlist from "./pages/Wishlist";
 import UserProfile from "./pages/UserProfile";
 import Checkout from "./pages/Checkout";
 import AuthVerify from "./services/AuthVerify";
+import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <div className="App">
@@ -48,6 +49,7 @@ function App() {
         ></Route>
         <Route path="/Checkout" element={<Checkout></Checkout>}></Route>
       </Routes>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
