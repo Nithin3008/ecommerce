@@ -22,7 +22,7 @@ const Checkout = () => {
   return (
     <>
       <NavBar></NavBar>
-      <div className="flex justify-around mt-4">
+      <div className="flex justify-around mt-4 max-md:flex max-md:flex-col max-md:w-fit max-md:mx-auto max-md:gap-7">
         <ul className="space-y-3">
           {usersList.address.map((val) => (
             <Address

@@ -21,7 +21,7 @@ const Cart = () => {
         <h1 className="text-2xl text-center mt-10">Cart is Empty</h1>
       ) : (
         <div className="flex justify-around mt-10 max-md:flex max-md:flex-col">
-          <ul className="grid grid-cols-2 max-sm:flex max-sm:flex-col ">
+          <ul className="grid grid-cols-2 max-sm:flex max-sm:flex-col max-md:w-fit max-md:mx-auto ">
             {cartList?.map((val) => (
               <CartListItem data={val} key={val._id}></CartListItem>
             ))}

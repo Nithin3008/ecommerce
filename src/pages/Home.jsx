@@ -34,9 +34,9 @@ const Home = () => {
         <img
           src="hero2.jpg"
           alt="hero2"
-          className="h-[40rem] rounded-lg  m-auto object-cover max-md:h-96 max-sm:h-72"
+          className="h-[40rem] rounded-lg  m-auto object-contain max-md:h-96 max-sm:h-72"
         ></img>
-        <p className="absolute bottom-24 text-3xl text-white left-32 max-sm:text-xl">
+        <p className="absolute bottom-24 text-3xl text-white left-32  max-sm:left-8 max-sm:bottom-16 max-sm:text-lg">
           The Forwardism BMW 7 Series
         </p>
       </div>

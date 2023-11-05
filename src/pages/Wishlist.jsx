@@ -17,7 +17,7 @@ const Wishlist = () => {
         <h1 className="text-2xl mt-10 text-center">Wishlist is Empty</h1>
       ) : (
         <div>
-          <ul className="flex  justify-center gap-4 mt-12">
+          <ul className="flex  justify-center gap-4 mt-12 max-md:flex max-md:flex-col max-md:w-fit max-md:mx-auto">
             {wishlistItems?.map((val) => (
               <WishListItem data={val} key={val._id}></WishListItem>
             ))}
