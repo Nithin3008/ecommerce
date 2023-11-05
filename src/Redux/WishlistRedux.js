@@ -6,7 +6,12 @@ const initialState = { wishlist: [], status: "idle" };
 const wishListSlice = createSlice({
   name: "wishlist",
   initialState,
-  reducers: {},
+  reducers: {
+    setWishlistEmpty(state) {
+      state.wishlist = [];
+      state.status = "idle";
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(FetchWishlist.pending, (state) => {
       state.status = "loading";
@@ -32,6 +37,7 @@ const wishListSlice = createSlice({
     });
   },
 });
+export const { setWishlistEmpty } = wishListSlice.actions;
 export const FetchWishlist = createAsyncThunk(
   "Wishlist/FetchWishlist",
   async () => {

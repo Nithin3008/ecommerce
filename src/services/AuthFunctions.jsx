@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setLogin, setLogout } from "../Redux/UserSlice";
+import { setEmptyCart } from "../Redux/CartSlice";
+import { setWishlistEmpty } from "../Redux/WishlistRedux";
 export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const nav = useNavigate();
@@ -57,6 +59,8 @@ export const AuthProvider = ({ children }) => {
   function Logout() {
     localStorage.clear();
     dispatch(setLogout());
+    dispatch(setEmptyCart());
+    dispatch(setWishlistEmpty());
   }
   return (
     <AuthContext.Provider value={{ loginHandler, signupHandler, Logout }}>

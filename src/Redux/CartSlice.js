@@ -4,7 +4,12 @@ const initialState = { cart: [], status: "idle" };
 const cartSlice = createSlice({
   name: "cart",
   initialState,
-  reducers: {},
+  reducers: {
+    setEmptyCart(state) {
+      state.cart = [];
+      state.status = "idle";
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(FetchCart.pending, (state) => {
       state.status = "loading";
@@ -44,6 +49,7 @@ const cartSlice = createSlice({
     });
   },
 });
+export const { setEmptyCart } = cartSlice.actions;
 export const FetchCart = createAsyncThunk("cart/FetchCart", async () => {
   const encodedToken = localStorage.getItem("loginToken");
 
