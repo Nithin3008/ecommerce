@@ -14,6 +14,10 @@ const ProductsListItems = ({ data }) => {
   const nav = useNavigate();
   const cart = useSelector((state) => state.cart);
   const wishlist = useSelector((state) => state.wishlist);
+  const userLogin = useSelector((state) => state.user.isLogin);
+  function loginCheckerCart(data) {
+    userLogin ? dispatch(AddCartItem(data)) : nav("/Login");
+  }
   return (
     <li className="rounded-lg">
       <img
@@ -34,7 +38,7 @@ const ProductsListItems = ({ data }) => {
         <div className="space-x-4">
           <Button
             isdisabled={itemInCart(data._id) === data._id}
-            onReact={() => dispatch(AddCartItem(data))}
+            onReact={() => loginCheckerCart(data)}
             styling={
               "border-2 border-blue-500 p-1 rounded text-blue-500 hover:bg-blue-500 hover:text-white"
             }
