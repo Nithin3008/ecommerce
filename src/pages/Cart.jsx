@@ -17,42 +17,46 @@ const Cart = () => {
   return (
     <>
       <NavBar></NavBar>
-      <div className="flex justify-around mt-10 max-md:flex max-md:flex-col">
-        <ul className="grid grid-cols-2 max-sm:flex max-sm:flex-col ">
-          {cartList?.map((val) => (
-            <CartListItem data={val} key={val._id}></CartListItem>
-          ))}
-        </ul>
-        <div className="space-y-3 max-md:text-lg">
-          <h1 className="text-xl text-center">Cart Details and Prices</h1>
-          <hr></hr>
-          <ul>
+      {cartList.length < 1 ? (
+        <h1 className="text-2xl text-center mt-10">Cart is Empty</h1>
+      ) : (
+        <div className="flex justify-around mt-10 max-md:flex max-md:flex-col">
+          <ul className="grid grid-cols-2 max-sm:flex max-sm:flex-col ">
             {cartList?.map((val) => (
-              <li className="flex justify-between gap-24 p-2 items-center">
-                <span className="text-lg">
-                  {val.title} ({val.qty}):{" "}
-                </span>
-                <span className="text-lg">{val.price}$</span>
-              </li>
+              <CartListItem data={val} key={val._id}></CartListItem>
             ))}
           </ul>
-          <hr></hr>
-          <div className="space-x-48 text-xl">
-            <span>Total Price:</span> <span>{totalAmount}$</span>
-          </div>
-          <hr></hr>
-          <div className="text-center">
-            <Button
-              styling={
-                "p-2 text-lg bg-yellow-400 text-white rounded hover:bg-white hover:text-yellow-500 hover:border-2 hover: border-yellow-500"
-              }
-              onReact={() => nav("/Checkout")}
-            >
-              Checkout
-            </Button>
+          <div className="space-y-3 max-md:text-lg">
+            <h1 className="text-xl text-center">Cart Details and Prices</h1>
+            <hr></hr>
+            <ul>
+              {cartList?.map((val) => (
+                <li className="flex justify-between gap-24 p-2 items-center">
+                  <span className="text-lg">
+                    {val.title} ({val.qty}):{" "}
+                  </span>
+                  <span className="text-lg">{val.price}$</span>
+                </li>
+              ))}
+            </ul>
+            <hr></hr>
+            <div className="space-x-48 text-xl">
+              <span>Total Price:</span> <span>{totalAmount}$</span>
+            </div>
+            <hr></hr>
+            <div className="text-center">
+              <Button
+                styling={
+                  "p-2 text-lg bg-yellow-400 text-white rounded hover:bg-white hover:text-yellow-500 hover:border-2 hover: border-yellow-500"
+                }
+                onReact={() => nav("/Checkout")}
+              >
+                Checkout
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };
