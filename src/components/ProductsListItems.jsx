@@ -18,6 +18,9 @@ const ProductsListItems = ({ data }) => {
   function loginCheckerCart(data) {
     userLogin ? dispatch(AddCartItem(data)) : nav("/Login");
   }
+  function loginCheckerWishList(data) {
+    userLogin ? dispatch(AddWishlistItem(data)) : nav("/Login");
+  }
   return (
     <li className="rounded-lg">
       <img
@@ -46,7 +49,7 @@ const ProductsListItems = ({ data }) => {
             {itemInCart(data._id) === data._id ? "Go to Cart" : "Add to Cart"}
           </Button>
           <Button
-            onReact={() => dispatch(AddWishlistItem(data))}
+            onReact={() => loginCheckerWishList(data)}
             isdisabled={itemInWishList(data._id) == data._id}
             styling={
               "border-2 border-blue-500 p-1 rounded text-blue-500 hover:bg-blue-500 hover:text-white"
