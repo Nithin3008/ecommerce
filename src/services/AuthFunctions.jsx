@@ -2,7 +2,7 @@ import React, { createContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setLogin } from "../Redux/UserSlice";
+import { setLogin, setLogout } from "../Redux/UserSlice";
 export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const nav = useNavigate();
@@ -54,9 +54,12 @@ export const AuthProvider = ({ children }) => {
       console.log(error);
     }
   };
-
+  function Logout() {
+    localStorage.clear();
+    dispatch(setLogout());
+  }
   return (
-    <AuthContext.Provider value={{ loginHandler, signupHandler }}>
+    <AuthContext.Provider value={{ loginHandler, signupHandler, Logout }}>
       {children}
     </AuthContext.Provider>
   );
