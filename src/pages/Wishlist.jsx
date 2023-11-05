@@ -13,13 +13,17 @@ const Wishlist = () => {
   return (
     <>
       <NavBar></NavBar>
-      <div>
-        <ul className="flex  justify-center gap-4 mt-12">
-          {wishlistItems?.map((val) => (
-            <WishListItem data={val} key={val._id}></WishListItem>
-          ))}
-        </ul>
-      </div>
+      {wishlistItems.length < 1 ? (
+        <h1 className="text-2xl mt-10 text-center">Wishlist is Empty</h1>
+      ) : (
+        <div>
+          <ul className="flex  justify-center gap-4 mt-12">
+            {wishlistItems?.map((val) => (
+              <WishListItem data={val} key={val._id}></WishListItem>
+            ))}
+          </ul>
+        </div>
+      )}
     </>
   );
 };
