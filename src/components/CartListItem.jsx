@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 const CartListItem = ({ data }) => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  const wishlist = useSelector((state) => state.wishlist);
   return (
     <li className="rounded-lg w-fit">
       <img
