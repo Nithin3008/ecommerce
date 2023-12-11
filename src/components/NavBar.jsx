@@ -15,7 +15,7 @@ const NavBar = () => {
   const location = useLocation();
   function setSearchQuery(event) {
     dispatch(setSearch(event.target.value));
-    nav("/Product");
+    nav("/Products");
   }
   return (
     <div className=" bg-white border-b-2 ">
