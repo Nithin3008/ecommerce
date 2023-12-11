@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { setSearch } from "../Redux/FilterSlice";
 import LinkButton from "./LinkButton";
@@ -9,6 +9,7 @@ import { AuthContext } from "../services/AuthFunctions";
 
 const NavBar = () => {
   const { Logout } = useContext(AuthContext);
+  const checkLogin = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const nav = useNavigate();
   const location = useLocation();
@@ -43,7 +44,7 @@ const NavBar = () => {
           ></input>
         </div>
         <div className="flex items-center gap-5 p-4">
-          <LinkButton to="/Login">Login</LinkButton>
+          {!checkLogin.isLogin && <LinkButton to="/Login">Login</LinkButton>}
           <LinkButton to="/Products">Products</LinkButton>
           <LinkButton to="/Cart">Cart</LinkButton>
           <LinkButton to="/Wishlist">Wishlist</LinkButton>
