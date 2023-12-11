@@ -19,7 +19,6 @@ const Product = () => {
   const productsList = ApplyFilters(productsArr);
   const filtersPage = useSelector((state) => state.filter);
   const [showFilter, setFilter] = useState(false);
-  console.log(productsList);
   return (
     <>
       <NavBar></NavBar>
