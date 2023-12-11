@@ -8,7 +8,6 @@ import NavBar from "../components/NavBar";
 const Home = () => {
   const categories = useSelector((state) => state.prodCate);
   const dispatch = useDispatch();
-  console.log(categories?.category);
   useEffect(() => {
     dispatch(FetchCategory());
   }, []);
