@@ -19,7 +19,6 @@ const Filters = ({ show }) => {
     <div
       className={`font-nunito border-r-2 border-blue-950 h-100%  p-4 max-sm:hidden
       } space-y-4 `}
-      style={{ display: show ? "block" : "none" }}
     >
       <div className="flex gap-16">
         <p className="text-xl">Filters</p>
