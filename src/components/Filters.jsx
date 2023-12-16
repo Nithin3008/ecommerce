@@ -17,7 +17,8 @@ const Filters = ({ show }) => {
   }, [dispatch]);
   return (
     <div
-      className={`font-nunito border-r-2 border-blue-950 h-100%  p-4 max-sm:hidden
+      className={`font-nunito border-r-2 border-blue-950 h-100%  p-4 max-sm:${
+        show ? "inline" : "hidden"
       } space-y-4 `}
     >
       <div className="flex gap-16">
