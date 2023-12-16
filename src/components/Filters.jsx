@@ -17,8 +17,7 @@ const Filters = ({ show }) => {
   }, [dispatch]);
   return (
     <div
-      className={`font-nunito border-r-2 border-blue-950 h-100%  p-4 max-sm:${
-        show === true ? "inline" : "hidden"
+      className={`font-nunito border-r-2 border-blue-950 h-100%  p-4 max-sm:hidden
       } space-y-4 `}
       style={{ display: show ? "block" : "none" }}
     >
