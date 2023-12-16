@@ -15,6 +15,7 @@ const NewAddressForm = ({ hideForm }) => {
       country: event.target.country.value,
     };
     dispatch(addAddress(newAddr));
+    hideForm();
   }
   return (
     <div className="bg-white space-y-4 p-5 rounded-sm">
