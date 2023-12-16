@@ -23,8 +23,8 @@ const Product = () => {
     <>
       <NavBar></NavBar>
       <FontAwesomeIcon
-        className="hidden max-sm:inline"
-        onClick={() => setFilter((s) => !s)}
+        className="sm:hidden max-sm:visible"
+        onClick={() => setFilter(!showFilter)}
         icon={faBars}
       />
       {productsList.length > 0 ? (
