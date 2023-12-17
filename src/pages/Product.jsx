@@ -28,7 +28,7 @@ const Product = () => {
         icon={faBars}
       />
       {productsList.length > 0 ? (
-        <section className="flex ">
+        <section className="flex max-sm:relative ">
           <Filters show={showFilter}></Filters>
           <ul className="flex flex-wrap flex-1 gap-5 items-center justify-center mt-7">
             {productsList?.map((val) => (
