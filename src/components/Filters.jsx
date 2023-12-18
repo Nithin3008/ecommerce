@@ -18,9 +18,9 @@ const Filters = ({ show }) => {
   console.log(show);
   return (
     <div
-      className={`font-nunito border-r-2 border-blue-950 h-100%  p-4 ${
+      className={`font-nunito border-r-2 border-blue-950 h-100% space-y-2  p-4 ${
         show ? "hidden" : "max-sm inline"
-      } max-sm:absolute max-sm:bg-white max-sm:h-full`}
+      } max-sm:absolute  max-sm:bg-white max-sm:h-full max-sm:left-0 max-sm:right-0`}
     >
       <div className="flex gap-16">
         <p className="text-xl">Filters</p>
