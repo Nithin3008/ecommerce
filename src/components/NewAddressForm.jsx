@@ -18,47 +18,55 @@ const NewAddressForm = ({ hideForm }) => {
     hideForm();
   }
   return (
-    <div className="bg-white space-y-4 p-5 rounded-sm">
-      <form className="flex flex-col space-y-2" onSubmit={submitAddr}>
-        <label className="text-xl">Street</label>
-        <input
-          className="outline-none border-2 border-stone-600 p-1 text-lg rounded-lg"
-          id="street"
-          required
-        ></input>
-        <label className="text-xl">City</label>
-        <input
-          className="outline-none border-2 border-stone-600 p-1 rounded-lg  text-lg"
-          id="city"
-          required
-        ></input>
-        <label className="text-xl">Pincode</label>
-        <input
-          className="outline-none border-2 border-stone-600 p-1 rounded-lg  text-lg"
-          id="code"
-          required
-          type="number"
-        ></input>
-        <label className="text-xl">Country</label>
-        <input
-          className="outline-none border-2 border-stone-600 p-1 rounded-lg text-lg"
-          id="country"
-          required
-        ></input>
+    <form
+      className="flex flex-col space-y-8 bg-white  p-10 rounded-lg"
+      onSubmit={submitAddr}
+    >
+      <h1 className="text-3xl">Add new address</h1>
+
+      <input
+        className="outline-none border-2 border-stone-400 p-1 text-lg rounded-lg"
+        id="street"
+        required
+        placeholder="Street"
+      ></input>
+
+      <input
+        className="outline-none border-2 border-stone-400 p-1 rounded-lg  text-lg"
+        id="city"
+        required
+        placeholder="city"
+      ></input>
+
+      <input
+        className="outline-none border-2 border-stone-400 p-1 rounded-lg  text-lg"
+        id="code"
+        required
+        type="number"
+        placeholder="pincode"
+      ></input>
+
+      <input
+        className="outline-none border-2 border-stone-400 p-1 rounded-lg text-lg"
+        id="country"
+        required
+        placeholder="country"
+      ></input>
+      <div className="space-x-8">
+        <Button
+          styling={"p-2 text-lg bg-red-500 text-white rounded"}
+          onReact={hideForm}
+        >
+          Cancel
+        </Button>
         <button
           className="p-2 text-lg bg-blue-500 text-white rounded"
           type="submit"
         >
           Submit
         </button>
-      </form>
-      <Button
-        styling={"p-2 text-lg bg-red-500 text-white rounded"}
-        onReact={hideForm}
-      >
-        Cancel
-      </Button>
-    </div>
+      </div>
+    </form>
   );
 };
 
