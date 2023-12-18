@@ -19,15 +19,15 @@ const ProductSummary = () => {
   return (
     <>
       <NavBar></NavBar>
-      <div className="flex justify-center mt-44 gap-5 p-4 ">
+      <div className="flex justify-center mt-44 gap-5 p-4 max-sm:flex-col ">
         <div>
           <img
             src={data.src}
-            className=" h-80 object-fit rounded"
+            className=" h-80 object-fit rounded max-sm:h-48 max-sm:object-fit"
             alt="car"
           ></img>
         </div>
-        <div className="space-y-4">
+        <div className="space-y-4 max-sm:text-center">
           <h1 className="text-2xl">Company: {data.manufacturer}</h1>
           <h2 className="text-xl">Name: {data.title}</h2>
           <p className="text-xl">
