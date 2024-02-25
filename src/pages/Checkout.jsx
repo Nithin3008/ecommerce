@@ -5,7 +5,7 @@ import Address from "../components/Address";
 import { useState } from "react";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
-import { setEmptyCart } from "../Redux/CartSlice";}
+import { setEmptyCart } from "../Redux/CartSlice";
 const Checkout = () => {
   const usersList = useSelector((state) => state.user);
   const cartList = useSelector((state) => state.cart.cart);
