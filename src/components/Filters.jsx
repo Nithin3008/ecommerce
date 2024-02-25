@@ -35,14 +35,14 @@ const Filters = ({ show }) => {
       <div className="space-y-2">
         <p>Price Range</p>
         <div className="space-x-10">
-          <span>0</span>
+          <span>45k</span>
           <span>1900k</span>
           <span>3800k</span>
         </div>
         <input
           id="large-range"
           type="range"
-          min="0"
+          min="45500"
           max="3800001"
           onChange={(e) => dispatch(setRange(Number(e.target.value)))}
           class="w-full h-1 bg-stone-500  rounded-lg appearance-none cursor-pointer range-lg "
