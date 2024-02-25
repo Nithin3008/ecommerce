@@ -1,14 +1,15 @@
 import React from "react";
 import NavBar from "../components/NavBar";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Address from "../components/Address";
 import { useState } from "react";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
-
+import { setEmptyCart } from "../Redux/CartSlice";}
 const Checkout = () => {
   const usersList = useSelector((state) => state.user);
   const cartList = useSelector((state) => state.cart.cart);
+  const dispatch = useDispatch();
   const totalAmount = cartList.reduce((acc, val) => acc + val.price, 0);
   const nav = useNavigate();
   const [selectAddr, setCheckAdd] = useState("");
@@ -17,6 +18,7 @@ const Checkout = () => {
     setCheckAdd(id);
   }
   function checkoutCart() {
+    dispatch(setEmptyCart());
     nav("/");
   }
   return (
