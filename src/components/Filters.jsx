@@ -44,7 +44,7 @@ const Filters = ({ show }) => {
           type="range"
           min="0"
           max="3800001"
-          onChange={(e) => dispatch(setRange(e.target.value))}
+          onChange={(e) => dispatch(setRange(Number(e.target.value)))}
           class="w-full h-1 bg-stone-500  rounded-lg appearance-none cursor-pointer range-lg "
         />
       </div>
